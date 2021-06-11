@@ -5,7 +5,7 @@
  * @param type
  */
 import axios from 'axios';
-export default function (url,data={},type='Get') {
+export default function (url,data={},type='GET') {
 
   return new Promise(function (resolve,reject) {
     let promise;
@@ -19,7 +19,7 @@ export default function (url,data={},type='Get') {
         dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'));
         url = url + '?' + dataStr;
       }
-
+      console.log(url);
       // 发送get请求
       promise = axios.get(url);
     } else {

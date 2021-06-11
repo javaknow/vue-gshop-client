@@ -1,7 +1,7 @@
 <template>
   <section class="msite">
     <!--首页头部-->
-    <HeaderTop title="昌平区北七家宏福科技园(337省道北)">
+    <HeaderTop :title="address.name">
          <span class="header_search" slot="left">
             <i class="iconfont icon-sousuo"></i>
          </span>
@@ -132,8 +132,11 @@
 <script>
 import Swiper from 'swiper'
 import 'swiper/css/swiper.min.css'
+import {mapState} from 'vuex'
+
 import HeaderTop from '../../components/HeaderTop/HeaderTop'
 import ShopList from '../../components/ShopList/ShopList'
+
 export default {
   name: 'MSite',
   mounted () {
@@ -145,11 +148,22 @@ export default {
         clickable:true
       }
     });
-
   },
   components:{
     HeaderTop,ShopList
+  },
+  computed:{
+    ...mapState(['address','latitude']),
+
+    //...mapState({address: state => state.address}),
+    //...mapState({latitude: state => state.longitude})
+  },
+  methods:{
+    test(){
+      console.log('Msite:'+this.$store.state.address.address)
+    }
   }
+
 }
 </script>
 
