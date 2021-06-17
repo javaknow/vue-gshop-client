@@ -7,6 +7,10 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+//未export的直接引用,类似import css
+import './mock/mockServer'
+
+
 Vue.config.productionTip = false
 
 
